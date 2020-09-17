@@ -2,7 +2,7 @@
 <?php
 $eventID = $_GET['eventID'];
 $eventTime = $_GET['eventTime'];
-$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 mysql_select_db("fma_1", $con);
 $query = "SELECT * FROM events WHERE ID = $eventID";
 $result = mysql_query($query) or die(mysql_error());
@@ -48,7 +48,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 
 	// IF Teams are full allows for signup for Newsletter
 	if(isset($_POST['news_submit'])){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);	
 		$email  = $_POST["news_email"];
 		
@@ -60,7 +60,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 	}
 	//final validation for Golfers 
 	if(isset($_POST['Submit'])){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		
 		$firstName = $_POST["first_name"];
@@ -162,7 +162,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 	}
 	function getImage($boxID, $eventID)
 	{
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		//$query = sprintf("SELECT * FROM Sponsor WHERE BOXID ='%s'", mysql_real_escape_string($boxID))  or die(mysql_error());
 		$query = "SELECT * FROM Sponsor WHERE EVENT = $eventID";
@@ -188,7 +188,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 		mysql_close($con);
 	}
 	function getURL($boxID, $eventID){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		//$query = sprintf("SELECT * FROM Sponsor WHERE BOXID ='%s'", mysql_real_escape_string($boxID))  or die(mysql_error());
 		$query = "SELECT * FROM Sponsor WHERE EVENT = $eventID";
@@ -211,7 +211,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 		
 	}
 	function getOptions($eventID, $eventTime){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);	
 		$query = "SELECT * FROM Teams WHERE EVENT = $eventID AND EVENT_TIME = $eventTime";
 		$result  = mysql_query($query);
@@ -228,7 +228,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 		mysql_close($con);
 	}
 	function getTeamNames($eventID){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		$query = "SELECT * FROM Teams WHERE EVENT = $eventID";
 		$result  = mysql_query($query);
@@ -283,7 +283,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 		mysql_close($con);
 	}
 	function getPlayersRemaining($eventID, $eventTime){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		$query = "SELECT * FROM Golfers WHERE EVENT = $eventID AND EVENT_TIME = $eventTime";
 		$result  = mysql_query($query);
@@ -300,7 +300,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 	}
 	
 	function getButton(){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		global $MAX_TEAMS;
 		$query = "SELECT * FROM Teams";
@@ -323,7 +323,7 @@ $MAX_TEAMS = $eventMaxAttendees/4;
 	function readyForm(){
 		$eventID = $_GET['eventID'];
 		$eventTime = $_GET['eventTime'];
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);
 		$query = "SELECT * FROM Golfers";
 		$result  = mysql_query($query);
@@ -528,7 +528,7 @@ foreach($states as $key=>$val) {
 		}
 	}
 	function checkDuplicateNames($firstName, $lastName, $phone){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);	
 		
 		$query = "SELECT * from Golfers";
@@ -545,7 +545,7 @@ foreach($states as $key=>$val) {
 		mysql_close($con);
 	}
 	function checkDuplicateTeams($teamName){
-		$con = mysql_connect('gtorreyjr69.globatmysql.com', 'gtorreyjr', 'tower69') or die(mysql_error());
+		$con = mysql_connect('server.info', 'username', 'password') or die(mysql_error());
 		mysql_select_db("fma_1", $con);	
 		$query = "SELECT * FROM Teams";
 		$result = mysql_query($query) or die(mysql_error);
